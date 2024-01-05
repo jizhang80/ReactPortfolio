@@ -1,14 +1,65 @@
 #root {
     position: relative;
     min-height: 100vh;
-  }
+}
 
 .container {
-    padding-bottom: 6rem;    /* Footer height */
-  }
+    padding-bottom: 20rem;    /* Footer height */
+}
   
 #footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-  }
+    background: #e9e8e6;
+    padding: 30px 0;
+    color: #222222;
+    font-size: 14px;
+    text-align: center;
+}
+
+.info .bi {
+    font-size: 20px;
+    color: #34b7a7;
+    float: left;
+    width: 44px;
+    height: 44px;
+    background: #effbf9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+}
+
+.info h4 {
+    padding: 0 0 0 60px;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #222222;
+}
+
+.info p {
+    padding: 0 0 0 60px;
+    margin-bottom: 0;
+    font-size: 14px;
+    color: #555555;
+}
+
+.info .email {
+    margin-top: 40px;
+}
+
+.info .phone {
+    margin-top: 40px;
+}
+
+.btn-contact {
+  background: #34b7a7;
+  border: 0;
+  padding: 10px 30px 12px 30px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 50px;
+}

@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom';
 
 // for portfolio card, accept portfolio data as props
-export default function PortfolioCard({ p }) {
+export default function PortfolioCard({ props }) {
     return (
-        <Link to={`/portfolios/${p.id}`}>
+        <Link to={`/portfolios/${props.id}`}>
             <div className="card text-bg-dark" style={{width: '18rem'}}>
-                <img src={p.img} alt={p.title} className="card-img" />
+                <img src={props.img} alt={props.title} className="card-img" />
                 <div className="card-img-overlay">
-                    <h5 className="card-title">{p.title} {p.createdAt}</h5>
-                    <p className="card-text">{p.description}</p>
+                    <h5 className="card-title">{props.title} {props.createdAt}</h5>
+                    <p className="card-text">{props.description}</p>
                 </div>
             </div>
         </Link>

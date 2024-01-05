@@ -1,3 +1,5 @@
+// for navbar, accept navbar links as props
+
 export default function Navbar({ links }) {
     return (
       <nav className="navbar navbar-expand-lg bg-secondary">
