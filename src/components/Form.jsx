@@ -1,5 +1,6 @@
 import { useState } from "react";
-import sendMail from "../../utils/email";
+import sendMail from "../utils/email";
+import { useForm } from "react-hook-form"
 
 export default function Form() {
     // const [name, setName] = useState("");
@@ -12,6 +13,12 @@ export default function Form() {
         subject: "",
         message: ""
     });
+
+    const {
+        register,
+        handleSubmit,
+        formState: {errors},
+    } = useForm();
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -42,13 +49,8 @@ export default function Form() {
     const handleFormSubmit = async (e) => {
         e.preventDefault();
 
-        // send the information by email
-        await sendMail({
-            name,
-            email,
-            subject,
-            message,
-        });
+        // send the information by email, currently only console.log
+        await sendMail(state);
 
         //reset all the input field
         setState({
@@ -64,20 +66,67 @@ export default function Form() {
     };
 
     return (
-        <form className="form m-5" onSubmit={handleFormSubmit}>
+        <form className="form m-5" onSubmit={handleSubmit(handleFormSubmit)}>
             <div className="row g-3 mb-3">
                 <div className="col">
-                    <input type="text" className="form-control" placeholder="Your Name" aria-label="name" name="name" value={state.name} onChange={handleInputChange} />
+                    <input 
+                        type="text" 
+                        className="form-control" 
+                        placeholder="Your Name" 
+                        aria-label="name" 
+                        name="name" 
+                        value={state.name} 
+                        onChange={handleInputChange} 
+                        {...register("name", {
+                            required: true
+                        })} 
+                    />
                 </div>
                 <div className="col">
-                    <input type="email" className="form-control" placeholder="Your Email" aria-label="email" name="email" value={state.email} onChange={handleInputChange} />
+                    <input 
+                        type="email" 
+                        className="form-control" 
+                        placeholder="Your Email" 
+                        aria-label="email" 
+                        name="email" 
+                        value={state.email} 
+                        onChange={handleInputChange} 
+                        {...register("email", {
+                            required: true,
+                            pattern: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/
+                        })} 
+                    />
+                    {errors.email && errors.email.type === "required" && (
+                        <p className="errorMsg">Email is required.</p>
+                    )}
+                    {errors.email && errors.email.type === "pattern" && (
+                        <p className="errorMsg">Email is not valid.</p>
+                    )}
                 </div>
             </div>
             <div className="mb-3">
-                <input type="text" className="form-control" id="subject" name="subject" placeholder="Subject" value={state.subject} onChange={handleInputChange} />
+                <input 
+                    type="text" 
+                    className="form-control" 
+                    id="subject" 
+                    name="subject" 
+                    placeholder="Subject" 
+                    value={state.subject} 
+                    onChange={handleInputChange} 
+                    {...register("subject")} 
+                />
             </div>
             <div className="mb-3">
-                <textarea className="form-control" id="message" rows="3" name="message" placeholder="Message" value={state.message} onChange={handleInputChange}></textarea>
+                <textarea 
+                    className="form-control" 
+                    id="message" 
+                    rows="3" 
+                    name="message" 
+                    placeholder="Message" 
+                    value={state.message} 
+                    onChange={handleInputChange} 
+                    {...register("message")} 
+                ></textarea>
             </div>
             <button type="submit" className="btn-contact">Submit</button>
         </form>
