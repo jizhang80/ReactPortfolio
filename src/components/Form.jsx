@@ -1,69 +1,27 @@
-import { useState } from "react";
+
 import sendMail from "../utils/email";
-import { useForm } from "react-hook-form"
+import { useForm } from "react-hook-form";
 
 export default function Form() {
-    // const [name, setName] = useState("");
-    // const [email, setEmail] = useState("");
-    // const [subject, setSubject] = useState("");
-    // const [message, setMessage] = useState("");
-    const [state, setState] = useState({
-        name: "",
-        email: "",
-        subject: "",
-        message: ""
-    });
 
     const {
         register,
         handleSubmit,
+        reset,
         formState: {errors},
     } = useForm();
 
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-
-        setState((prevProps) => ({
-            ...prevProps,
-            [name]: value
-        }));
-
-        // switch(name) {
-        //     case 'name':
-        //         setName(value);
-        //         break;
-        //     case 'email':
-        //         setEmail(value);
-        //         break;
-        //     case 'subject':
-        //         setSubject(value);
-        //         break;
-        //     case 'message':
-        //         setMessage(value);
-        //         break;
-        //     default:
-        //         return;
-        // }
-    };
-
-    const handleFormSubmit = async (e) => {
-        e.preventDefault();
-
+    const handleFormSubmit = async (data) => {
         // send the information by email, currently only console.log
-        await sendMail(state);
-
-        //reset all the input field
-        setState({
+        await sendMail(data);
+        reset({
             name: "",
             email: "",
             subject: "",
             message: ""
         });
-        // setName("");
-        // setEmail("");
-        // setSubject("");
-        // setMessage("");
     };
+
 
     return (
         <form className="form m-5" onSubmit={handleSubmit(handleFormSubmit)}>
@@ -75,11 +33,8 @@ export default function Form() {
                         placeholder="Your Name" 
                         aria-label="name" 
                         name="name" 
-                        value={state.name} 
-                        onChange={handleInputChange} 
-                        {...register("name", {
-                            required: true
-                        })} 
+                        required
+                        {...register("name")} 
                     />
                 </div>
                 <div className="col">
@@ -89,19 +44,9 @@ export default function Form() {
                         placeholder="Your Email" 
                         aria-label="email" 
                         name="email" 
-                        value={state.email} 
-                        onChange={handleInputChange} 
-                        {...register("email", {
-                            required: true,
-                            pattern: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/
-                        })} 
+                        required
+                        {...register("email")} 
                     />
-                    {errors.email && errors.email.type === "required" && (
-                        <p className="errorMsg">Email is required.</p>
-                    )}
-                    {errors.email && errors.email.type === "pattern" && (
-                        <p className="errorMsg">Email is not valid.</p>
-                    )}
                 </div>
             </div>
             <div className="mb-3">
@@ -111,8 +56,7 @@ export default function Form() {
                     id="subject" 
                     name="subject" 
                     placeholder="Subject" 
-                    value={state.subject} 
-                    onChange={handleInputChange} 
+                    required
                     {...register("subject")} 
                 />
             </div>
@@ -123,10 +67,10 @@ export default function Form() {
                     rows="3" 
                     name="message" 
                     placeholder="Message" 
-                    value={state.message} 
-                    onChange={handleInputChange} 
+                    required
                     {...register("message")} 
-                ></textarea>
+                >
+                </textarea>
             </div>
             <button type="submit" className="btn-contact">Submit</button>
         </form>

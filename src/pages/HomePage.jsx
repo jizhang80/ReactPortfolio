@@ -120,8 +120,8 @@ const portfolios = [
 
 export default function HomePage() {
   return (
-    <div>
-      <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 justify-content-center">
+    <div className='aos-init aos-animate'>
+      <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 justify-content-center" data-aos="fade-up" data-aos-delay="200">
           {portfolios.map((p) => <PortfolioCard props={p} key={p.id} />)}
       </div>
     </div>

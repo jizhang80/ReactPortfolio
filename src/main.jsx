@@ -6,6 +6,7 @@ import App from './App.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import "aos/dist/aos.css"
 import './main.css';
 
 //
@@ -14,6 +15,10 @@ import AboutPage from './pages/AboutPage.jsx';
 import ContactPage from './pages/ContactPage.jsx';
 import ResumePage from './pages/ResumePage.jsx';
 import HomePage from './pages/HomePage.jsx';
+
+//AOS
+import AOS from 'aos';
+AOS.init();
 
 // Define the accessible routes, and which components respond to which URL
 const router = createBrowserRouter([
