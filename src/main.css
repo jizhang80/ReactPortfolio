@@ -1,5 +1,49 @@
 body {
     overflow-x: hidden; /* there is always a horizontal bar if remove this */
+    min-width: 500px;
+}
+
+.bg-local-home {
+    background-image: url(/home-background.jpg);
+    background-color: rgba(255,255,255,0.8);
+    background-size: cover;
+}
+
+.local-text-editor {
+    display: block;
+    margin: auto;
+    max-width: 530px;
+    border-radius: 10px;
+    box-shadow: rgba(30,30,30,0.8) 0px 20px 70px;
+    clear: both;
+    overflow: hidden;
+    transition: all 0.5s ease-out;
+}
+
+.local-title-bar {
+    padding: 5px 0;
+    font-family: "Lucida Grande", sans-serif;
+    font-size:0.75em;
+    text-align: center;
+    text-shadow: rgba(255, 255,255, 0.8) 0px 1px 0px;
+    background-color: #f8f8f8;
+    box-shadow: inset rgba(255,255,255,0.7) 0px 1px 1px;
+    border-bottom:#6a6a6a 1px solid;
+}
+
+.local-text-body {
+    background-color: rgba(0,0,0,0.85);
+    padding: 10px;
+    color: #f0f0f0;
+    text-shadow: #000 0px 1px 0px;
+    font-family: "Consolas", "Courier New", "Courier";
+    font-size: 1.45em;
+    line-height: 1.40em;
+    font-weight: 500;
+    text-align: left;
+    overflow: hidden;
+    transition: all 0.5s ease-out;
+    height: 250px;
 }
 
 .info .bi {
@@ -39,11 +83,3 @@ body {
     margin-top: 40px;
 }
 
-.btn-contact {
-  background: #34b7a7;
-  border: 0;
-  padding: 10px 30px 12px 30px;
-  color: #fff;
-  transition: 0.4s;
-  border-radius: 50px;
-}

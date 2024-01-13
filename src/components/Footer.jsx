@@ -1,7 +1,7 @@
 
 export default function Footer() {
     return (
-        <footer className="footer bg-light mt-auto">
+        <footer className="footer bg-secondary mt-auto">
             <div className="d-flex flex-wrap justify-content-between align-items-center mx-2 py-2">
                 <div className="col-md-4 d-flex align-items-center gap-2 m-2">
                     <img src="/programmer-icon-32.png" type="image/png" />

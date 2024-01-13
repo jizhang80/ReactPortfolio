@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "aos/dist/aos.css"
-import './main.css';
+import './main.css';  // local styles
 
 //
 import ErrorPage from './pages/ErrorPage.jsx';
@@ -15,6 +15,7 @@ import AboutPage from './pages/AboutPage.jsx';
 import ContactPage from './pages/ContactPage.jsx';
 import ResumePage from './pages/ResumePage.jsx';
 import HomePage from './pages/HomePage.jsx';
+import PortfolioPage from './pages/PortfolioPage.jsx';
 
 //AOS
 import AOS from 'aos';
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
         index: true,
         path: "",
         element: <HomePage />,
+      },
+      {
+        path: 'portfolio',
+        element: <PortfolioPage />,
       },
       {
         path: 'about',

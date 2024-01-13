@@ -1,4 +1,4 @@
-
+import Button from "../components/UI/Button"
 import sendMail from "../utils/email";
 import { useForm } from "react-hook-form";
 
@@ -72,7 +72,9 @@ export default function Form() {
                 >
                 </textarea>
             </div>
-            <button type="submit" className="btn-contact">Submit</button>
+            <Button
+            text="Submit"
+            />
         </form>
     );
 }
