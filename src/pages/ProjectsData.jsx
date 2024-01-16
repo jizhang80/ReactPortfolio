@@ -35,4 +35,22 @@ export const projectsData = [
     stack: "Javascript MVC ORM",
     repo: "https://github.com/jizhang80/TechBlog"
   },
+  {
+    id: 5,
+    title: 'E-commerce Back End',
+    img: "/portfolio/EcommerceBackEnd.jpg",
+    description: "build the back end for an e-commerce site",
+    createdAt: "2023-10-01",
+    stack: "Javascript MySQL",
+    repo: "https://github.com/jizhang80/E-commerceBackEnd"
+  },
+  {
+    id: 6,
+    title: 'React Portfolio',
+    img: "/portfolio/ReactPortfolio.jpg",
+    description: "create a portfolio by using React skills",
+    createdAt: "2023-12-20",
+    stack: "React",
+    repo: "https://github.com/jizhang80/ReactPortfolio"
+  },
 ]
