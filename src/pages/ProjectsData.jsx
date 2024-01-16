@@ -1,4 +1,3 @@
-// typed.js data
 export const projectsData = [
   {
     id: 1,
