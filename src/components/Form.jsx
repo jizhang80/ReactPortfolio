@@ -1,80 +1,59 @@
-import Button from "../components/UI/Button"
+import { useState } from "react";
+import Button from "../components/UI/Button";
+import { Input } from "../components/UI/Input";
+import {nameFormat, emailFormat, subjectFormat, msgFormat} from './FormFormatData';
 import sendMail from "../utils/email";
-import { useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 
 export default function Form() {
 
-    const {
-        register,
-        handleSubmit,
-        reset,
-        formState: {errors},
-    } = useForm();
+    const methods = useForm({mode: 'onBlur'}); // set validation triger mode onBlur
+    const [success, setSuccess] = useState(false);
 
-    const handleFormSubmit = async (data) => {
+    const onSubmit = methods.handleSubmit(async (data) => {
         // send the information by email, currently only console.log
         await sendMail(data);
-        reset({
+        methods.reset({
             name: "",
             email: "",
             subject: "",
             message: ""
         });
-    };
+        setSuccess(true);
+    });
 
 
     return (
-        <form className="form m-5" onSubmit={handleSubmit(handleFormSubmit)}>
+        <FormProvider {...methods}>
+        <form 
+            className="form m-5" 
+            onSubmit={e => e.preventDefault()}
+            noValidate
+        >
             <div className="row g-3 mb-3">
                 <div className="col">
-                    <input 
-                        type="text" 
-                        className="form-control" 
-                        placeholder="Your Name" 
-                        aria-label="name" 
-                        name="name" 
-                        required
-                        {...register("name")} 
-                    />
+                    <Input {...nameFormat} />
                 </div>
                 <div className="col">
-                    <input 
-                        type="email" 
-                        className="form-control" 
-                        placeholder="Your Email" 
-                        aria-label="email" 
-                        name="email" 
-                        required
-                        {...register("email")} 
-                    />
+                    <Input {...emailFormat} />
                 </div>
             </div>
             <div className="mb-3">
-                <input 
-                    type="text" 
-                    className="form-control" 
-                    id="subject" 
-                    name="subject" 
-                    placeholder="Subject" 
-                    required
-                    {...register("subject")} 
-                />
+                <Input {...subjectFormat} />
             </div>
             <div className="mb-3">
-                <textarea 
-                    className="form-control" 
-                    id="message" 
-                    rows="3" 
-                    name="message" 
-                    placeholder="Message" 
-                    required
-                    {...register("message")} 
-                >
-                </textarea>
+                <Input {...msgFormat} />
             </div>
+            {success && (
+                <p className="text-success fs-6 fw-light">
+                    Form has been submitted successfully
+                </p>
+            )}
             <Button
+            onSubmit={onSubmit}
             text="Submit"
             />
         </form>
+        </FormProvider>
     );
 }
