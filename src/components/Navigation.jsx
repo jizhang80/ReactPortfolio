@@ -8,8 +8,8 @@ export default function Navigation() {
       links={[
         <Link 
         key={1} 
-        className={currentPage === '/about' ? 'nav-link active text-light' : 'nav-link'} 
-        to="/about"
+        className={currentPage === '/' ? 'nav-link active text-light' : 'nav-link'} 
+        to="/"
         >
             About Me
         </Link>,
@@ -19,13 +19,6 @@ export default function Navigation() {
         to="/portfolio"
         >
             Portfolio
-        </Link>,
-        <Link 
-        key={3} 
-        className={currentPage === '/home' ? 'nav-link active text-light' : 'nav-link'} 
-        to="/home"
-        >
-            Home
         </Link>,
         <Link 
         key={4} 

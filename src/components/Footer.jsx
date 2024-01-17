@@ -8,9 +8,9 @@ export default function Footer() {
                     <span className="mb-3 mb-md-0 text-body-secondary">© 2023 Jimmy Z.</span>
                 </div>
                 <div className="header-social-links d-lg-flex col-lg-3 gap-1 justify-content-lg-end">
+                  <a type="button" className="btn btn-secondary" href="https://www.github.com/"><i className="bi bi-github"></i></a>
                   <a type="button" className="btn btn-secondary" href="https://www.twitter.com/"><i className="bi bi-twitter"></i></a>
-                  <a type="button" className="btn btn-secondary" href="https://www.facebook.com/"><i className="bi bi-facebook"></i></a>
-                  <a type="button" className="btn btn-secondary" href="https://www.instagram.com/"><i className="bi bi-instagram"></i></a>
+                  <a type="button" className="btn btn-secondary" href="https://stackoverflow.co/"><i className="bi bi-stack-overflow"></i></a>
                   <a type="button" className="btn btn-secondary" href="https://www.linkedin.com/"><i className="bi bi-linkedin"></i></a>
                 </div>
             </div>

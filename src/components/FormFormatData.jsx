@@ -48,7 +48,7 @@ export const subjectFormat = {
 }
 
 export const msgFormat = {
-  name: 'massage',
+  name: 'message',
   multiline: true,
   placeholder: 'Message',
   validation: {
