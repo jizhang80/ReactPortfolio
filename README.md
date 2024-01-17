@@ -7,7 +7,7 @@
 ## Screenshot
 
 TBD  
-![screenshot](./assets/screenshot.jpg)
+![screenshot](./asset/screenshot.jpg)
 
 ## The Task
 
